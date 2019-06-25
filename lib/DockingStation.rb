@@ -1,1 +1,0 @@
-DockingStation = Class.new
