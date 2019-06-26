@@ -65,3 +65,11 @@ describe DockingStation do
     expect { docking_station.dock_bike(Bike.new) }.to raise_error("docking station full")
   end
 end
+
+describe DockingStation do
+  it "is able to initialise a dockingstation with a specified capacity " do
+    station = DockingStation.new(15)
+    expect(station.check_capacity).to eq 15
+  end
+
+end
