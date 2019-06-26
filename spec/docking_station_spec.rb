@@ -11,3 +11,17 @@ describe DockingStation do
     expect(subject).to respond_to :release_bike
   end
 end
+
+describe DockingStation do
+  it 'release_bike initializes Bike object' do
+    docking_station = DockingStation.new
+    expect(docking_station.release_bike.is_a? Bike).to eq true
+  end
+end
+
+describe DockingStation do
+  it 'release_bike initializes Bike object that is working' do
+    docking_station = DockingStation.new
+    expect(docking_station.release_bike.working?).to eq true
+  end
+end
