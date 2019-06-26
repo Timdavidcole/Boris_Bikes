@@ -8,14 +8,14 @@ class DockingStation
 
   attr_reader :docked_bikes
   # attr_reader currently does the same thing as check_bikes
-  
+
   def release_bike
     fail "no bikes docked" if @docked_bikes == []
-    Bike.new
+    @docked_bikes.pop
   end
 
   def dock_bike (bike)
-    fail "docking station full" if @docked_bikes.length >= 1
+    fail "docking station full" if @docked_bikes.length >= 20
     @docked_bikes.push(bike)
   end
 
