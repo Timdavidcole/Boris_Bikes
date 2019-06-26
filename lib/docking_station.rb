@@ -1,22 +1,22 @@
 DockingStation = Class.new
 
 class DockingStation
+
   def initialize
     @docked_bikes = []
   end
+
   attr_reader :docked_bikes
   # attr_reader currently does the same thing as check_bikes
+  
   def release_bike
-    if @docked_bikes == []
-      fail "no bikes docked"
-    else
-      Bike.new
-    end
+    fail "no bikes docked" if @docked_bikes == []
+    Bike.new
   end
 
   def dock_bike (bike)
+    fail "docking station full" if @docked_bikes.length >= 1
     @docked_bikes.push(bike)
-
   end
 
   def check_bikes

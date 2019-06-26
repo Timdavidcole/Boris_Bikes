@@ -43,8 +43,6 @@ describe DockingStation do
   end
 end
 
-
-
 describe DockingStation do
   it 'release_bike initializes Bike object that is working' do
     docking_station = DockingStation.new
@@ -57,5 +55,13 @@ describe DockingStation do
   it 'raises an error when release_bike called when no bikes docked' do
     docking_station = DockingStation.new
     expect { docking_station.release_bike }.to raise_error("no bikes docked")
+  end
+end
+
+describe DockingStation do
+  it 'raises an error when dock_bike called when docking station is full' do
+    docking_station = DockingStation.new
+    docking_station.dock_bike(Bike.new)
+    expect { docking_station.dock_bike(Bike.new) }.to raise_error("docking station full")
   end
 end
